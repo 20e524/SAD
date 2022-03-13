@@ -12,4 +12,6 @@ public interface FlipperState {
 
     void pressStartButton();
 
+    void play();
+
 }

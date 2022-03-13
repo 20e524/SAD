@@ -19,4 +19,9 @@ public class Ready implements FlipperState {
         flipper.setFlipperState(flipper.getPlaying());
     }
 
+    @Override
+    public void play() {
+        System.out.println("readyState: press the start button first");
+    }
+
 }

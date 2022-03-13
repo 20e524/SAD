@@ -20,4 +20,9 @@ public class NoCredit implements FlipperState {
         System.out.println("noCreditState: Coin needs to be entered");
     }
 
+    @Override
+    public void play() {
+        System.out.println("noCreditState: enter coin first");
+    }
+
 }

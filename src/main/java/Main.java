@@ -5,11 +5,28 @@ public class Main {
         Flipper flipper = new Flipper();
 
         flipper.pressStartButton();
+        flipper.play();
         flipper.insertCoin();
-        flipper.insertCoin();
+        flipper.play();
 
         flipper.pressStartButton();
         flipper.pressStartButton();
+        flipper.play();
+        flipper.play();
+        flipper.play();
+        flipper.play();
+        flipper.play();
+        flipper.play();
+        flipper.play();
+        flipper.play();
+        flipper.play();
+        flipper.play();
+        flipper.play();
+        flipper.pressStartButton();
+
+        flipper.play();
+        flipper.play();
+
 
     }
 }

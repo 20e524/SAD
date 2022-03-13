@@ -10,6 +10,7 @@ public class Flipper {
     FlipperState flipperState;
 
     int coinInMachine = 0;
+    int ballinMachine = 0;
 
     public Flipper() {
         noCredit = new NoCredit(this);
@@ -30,13 +31,20 @@ public class Flipper {
 
     public void insertCoin() {
         coinInMachine++;
-        flipperState.insertCoin();
+        ballinMachine+=3;
         System.out.println("coins: "+coinInMachine);
+        System.out.println("balls: "+ballinMachine);
+        flipperState.insertCoin();
     }
 
     public void pressStartButton() {
         flipperState.pressStartButton();
     }
+
+    public void play() {
+        flipperState.play();
+    }
+
 
 
     public FlipperState getNoCredit() {
