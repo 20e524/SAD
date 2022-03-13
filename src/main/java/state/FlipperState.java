@@ -12,7 +12,4 @@ public interface FlipperState {
 
     void pressStartButton();
 
-    void showAuthors();
-
-
 }
