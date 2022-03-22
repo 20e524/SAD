@@ -37,25 +37,11 @@ public class Main {
         flipper.play();
 
 
-        Bumper bumper1 = new Bumper();
-        Command activateBumperCommand = new ActivateBumper(bumper1);
-        Command bumpCommand = new ApplyBump(bumper1);
-
-        SlingShot slingShot1 = new SlingShot();
-        Command shoot = new Shoot(slingShot1);
-
-        Ramp ramp = new Ramp();
-        Command raise = new RaiseRamp(ramp);
-
-        CommandExecutor executor = new CommandExecutor();
-
-        executor.addCommand(activateBumperCommand);
-        executor.addCommand(bumpCommand);
-        executor.addCommand(shoot);
-        executor.addCommand(raise);
 
 
-        executor.executeCommands();
+//        CommandExecutor executor = new CommandExecutor();
+
+
 
 
     }

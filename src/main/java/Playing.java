@@ -1,11 +1,26 @@
+import command.CommandExecutor;
+import command.bumpercommand.ActivateBumper;
+import command.bumpercommand.ApplyBump;
+import command.rampcommand.RaiseRamp;
+import command.slingshotcommand.Shoot;
+import elements.Bumper;
+import elements.Ramp;
+import elements.SlingShot;
 import state.FlipperState;
 
 public class Playing implements FlipperState {
 
     Flipper flipper;
 
-    public Playing(Flipper newFlipper) {
-        flipper = newFlipper;
+    Bumper bumper1 = new Bumper("bumper1");
+    SlingShot slingShot1 = new SlingShot();
+    Ramp ramp = new Ramp();
+
+    CommandExecutor executor = new CommandExecutor();
+
+    public Playing(Flipper flipper) {
+        this.flipper = flipper;
+
     }
 
     @Override
@@ -29,6 +44,14 @@ public class Playing implements FlipperState {
                 flipper.ballinMachine--;
             }
         }
+
+        executor.addCommand(new ActivateBumper(bumper1));
+        executor.addCommand(new ApplyBump(bumper1));
+        executor.addCommand(new Shoot(slingShot1));
+        executor.addCommand(new RaiseRamp(ramp));
+
+
+        executor.executeCommands();
     }
 
 }
