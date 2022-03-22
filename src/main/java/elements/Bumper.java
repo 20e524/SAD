@@ -1,6 +1,8 @@
 package elements;
 
-public class Bumper {
+import command.FlipperElement;
+
+public class Bumper implements FlipperElement {
 
     private String identifier;
 
@@ -17,4 +19,9 @@ public class Bumper {
     }
 
 
+    @Override
+    public void hit() {
+//        this.applyBump();
+        System.out.println("bumper hit implementation running");
+    }
 }

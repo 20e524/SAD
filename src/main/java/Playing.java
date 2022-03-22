@@ -1,4 +1,5 @@
 import command.CommandExecutor;
+import command.Hit;
 import command.bumpercommand.ActivateBumper;
 import command.bumpercommand.ApplyBump;
 import command.rampcommand.RaiseRamp;
@@ -49,6 +50,9 @@ public class Playing implements FlipperState {
         executor.addCommand(new ApplyBump(bumper1));
         executor.addCommand(new Shoot(slingShot1));
         executor.addCommand(new RaiseRamp(ramp));
+        executor.addCommand(new Hit(ramp));
+        executor.addCommand(new Hit(bumper1));
+        executor.addCommand(new Hit(slingShot1));
 
 
         executor.executeCommands();
