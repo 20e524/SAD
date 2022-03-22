@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CommandConductor {
+public class CommandExecutor {
 
     private List<Command> commandList
             = new ArrayList<Command>();

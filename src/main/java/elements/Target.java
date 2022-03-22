@@ -1,2 +1,4 @@
-package elements;public class Target {
+package elements;
+
+public class Target {
 }

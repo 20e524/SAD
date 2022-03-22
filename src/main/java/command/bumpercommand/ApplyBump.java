@@ -1,5 +1,6 @@
-package command;
+package command.bumpercommand;
 
+import command.Command;
 import elements.Bumper;
 
 public class ApplyBump implements Command {

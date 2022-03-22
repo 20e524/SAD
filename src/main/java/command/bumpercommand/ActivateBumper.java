@@ -1,8 +1,9 @@
-package command;
+package command.bumpercommand;
 
+import command.Command;
 import elements.Bumper;
 
-public class ActivateBumper implements Command{
+public class ActivateBumper implements Command {
 
     private Bumper bumper;
 
