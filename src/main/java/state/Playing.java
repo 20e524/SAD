@@ -1,3 +1,7 @@
+package state;
+
+import command.bumpercommand.AddPointsBumperHitCommand;
+import flipper.Flipper;
 import state.FlipperState;
 
 public class Playing implements FlipperState {
@@ -26,7 +30,13 @@ public class Playing implements FlipperState {
         if (flipper.ballinMachine == 0) {
             flipper.setFlipperState(flipper.getEnd());
         } else {
-            System.out.println("playingState: playing Flipper: ding, ding, bing, bing, brrrrrr");
+            System.out.println("playingState: playing flipper.Flipper: ding, ding, bing, bing, brrrrrr");
+
+            // bumper 1 bekommt ein kommando-objekt, dessen execute-Methode er bei einem hit aufruft.
+            System.out.println(flipper.getPoints());
+            flipper.getFlipperElements().get(0).hit();
+            System.out.println(flipper.getPoints());
+
             var chance = Math.random();
             if (chance < 0.85) {
                 flipper.ballinMachine--;

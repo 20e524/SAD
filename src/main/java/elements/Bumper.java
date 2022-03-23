@@ -23,12 +23,14 @@ public class Bumper implements FlipperElement {
         System.out.println("bumper " + identifier + " activated");
     }
 
-    public void applyBump() {
-        System.out.println("Bump " + identifier);
+    public void bump() {
+        System.out.println("bumper " + identifier + " bumped");
     }
 
     @Override
     public void hit() {
         command.execute(); //callback
     }
+
+
 }

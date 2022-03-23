@@ -1,13 +1,16 @@
-import command.CommandExecutor;
-import command.rampcommand.RaiseRampCommand;
+package app;
+
+import command.bumpercommand.AddPointsBumperHitCommand;
 import elements.Bumper;
 import elements.Ramp;
 import elements.SlingShot;
+import flipper.Flipper;
 
 public class Main {
     public static void main(String[] args) {
 
         Flipper flipper = new Flipper();
+        flipper.init();
 
         flipper.pressStartButton();
         flipper.play();
@@ -32,14 +35,8 @@ public class Main {
         flipper.play();
         flipper.play();
 
-        Bumper bumper1 = new Bumper("bumper1");
-        SlingShot slingShot1 = new SlingShot();
-        Ramp ramp = new Ramp();
 
-        // bumper 1 bekommt ein kommando-objekt, dessen execute-Methode er bei einem hit aufruft.
-        bumper1.setCommand(new RaiseRampCommand(ramp));
 
-        bumper1.hit();
 
 
 

@@ -1,8 +1,11 @@
+package state;
+
+import flipper.Flipper;
 import state.FlipperState;
 
 public class NoCredit implements FlipperState {
 
-    Flipper flipper;
+    private Flipper flipper;
 
     public NoCredit(Flipper newFlipper) {
         flipper = newFlipper;

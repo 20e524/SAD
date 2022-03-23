@@ -3,9 +3,9 @@ package state;
 public interface FlipperState {
 
     /*
-    NoCredit-State
-    Ready-State
-    Playing-State
+    state.NoCredit-State
+    state.Ready-State
+    state.Playing-State
      */
 
     void insertCoin();

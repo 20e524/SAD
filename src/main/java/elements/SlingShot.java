@@ -1,5 +1,6 @@
 package elements;
 
+import command.Command;
 import command.FlipperElement;
 
 public class SlingShot implements FlipperElement {
@@ -12,4 +13,11 @@ public class SlingShot implements FlipperElement {
     public void hit() {
         System.out.println("slingshot hit implementation running");
     }
+
+    @Override
+    public void setCommand(Command command) {
+
+    }
+
+
 }

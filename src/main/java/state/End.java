@@ -1,8 +1,11 @@
+package state;
+
+import flipper.Flipper;
 import state.FlipperState;
 
 public class End implements FlipperState {
 
-    Flipper flipper;
+    private Flipper flipper;
 
     public End(Flipper newFlipper) {
         flipper = newFlipper;

@@ -1,3 +1,6 @@
+package state;
+
+import flipper.Flipper;
 import state.FlipperState;
 
 public class Ready implements FlipperState {
