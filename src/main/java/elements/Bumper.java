@@ -1,11 +1,18 @@
 package elements;
 
+import command.Command;
 import command.FlipperElement;
 
 public class Bumper implements FlipperElement {
 
     private String identifier;
     private Boolean active = false;
+
+    Command command;
+
+    public void setCommand(Command command) {
+        this.command = command;
+    }
 
     public Bumper(String identifier) {
         this.identifier = identifier;
@@ -20,12 +27,8 @@ public class Bumper implements FlipperElement {
         System.out.println("Bump " + identifier);
     }
 
-
     @Override
     public void hit() {
-        if (active) {
-            applyBump();
-        }
-        System.out.println("bumper hit implementation running");
+        command.execute(); //callback
     }
 }

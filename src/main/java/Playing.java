@@ -1,23 +1,10 @@
-import command.CommandExecutor;
-import command.OnHitCommand;
-import command.bumpercommand.ActivateBumperCommand;
-import command.bumpercommand.ApplyBumpCommand;
-import command.rampcommand.RaiseRampCommand;
-import command.slingshotcommand.ShootCommand;
-import elements.Bumper;
-import elements.Ramp;
-import elements.SlingShot;
 import state.FlipperState;
 
 public class Playing implements FlipperState {
 
     Flipper flipper;
 
-    Bumper bumper1 = new Bumper("bumper1");
-    SlingShot slingShot1 = new SlingShot();
-    Ramp ramp = new Ramp();
 
-    CommandExecutor executor = new CommandExecutor();
 
     public Playing(Flipper flipper) {
         this.flipper = flipper;
@@ -46,16 +33,7 @@ public class Playing implements FlipperState {
             }
         }
 
-        executor.addCommandToList(new ActivateBumperCommand(bumper1));
-        executor.addCommandToList(new ApplyBumpCommand(bumper1));
-        executor.addCommandToList(new ShootCommand(slingShot1));
-        executor.addCommandToList(new RaiseRampCommand(ramp));
-        executor.addCommandToList(new OnHitCommand(ramp));
-        executor.addCommandToList(new OnHitCommand(bumper1));
-        executor.addCommandToList(new OnHitCommand(slingShot1));
 
-
-        executor.executeCommands();
     }
 
 }
