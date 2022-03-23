@@ -1,13 +1,3 @@
-import command.bumpercommand.ActivateBumper;
-import command.bumpercommand.ApplyBump;
-import command.Command;
-import command.CommandExecutor;
-import command.rampcommand.RaiseRamp;
-import command.slingshotcommand.Shoot;
-import elements.Bumper;
-import elements.Ramp;
-import elements.SlingShot;
-
 public class Main {
     public static void main(String[] args) {
 

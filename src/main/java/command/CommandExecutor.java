@@ -11,7 +11,7 @@ public class CommandExecutor {
     private List<Command> commandList
             = new ArrayList<Command>();
 
-    public void addCommand(Command c){
+    public void addCommandToList(Command c){
         commandList.add(c);
     }
 
@@ -19,5 +19,9 @@ public class CommandExecutor {
         for(Command c : commandList){
             c.execute();
         }
+    }
+
+    public void executeCommand(Command c) {
+        c.execute();
     }
 }

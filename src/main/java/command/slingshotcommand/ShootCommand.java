@@ -1,14 +1,13 @@
 package command.slingshotcommand;
 
 import command.Command;
-import elements.Bumper;
 import elements.SlingShot;
 
-public class Shoot implements Command {
+public class ShootCommand implements Command {
 
     private SlingShot slingShot;
 
-    public Shoot(SlingShot slingshot) {
+    public ShootCommand(SlingShot slingshot) {
         this.slingShot = slingshot;
     }
 

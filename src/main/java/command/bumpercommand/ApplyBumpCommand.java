@@ -3,16 +3,16 @@ package command.bumpercommand;
 import command.Command;
 import elements.Bumper;
 
-public class ActivateBumper implements Command {
+public class ApplyBumpCommand implements Command {
 
-    private Bumper bumper;
+    private Bumper bumper; // receiver
 
-    public ActivateBumper(Bumper bumper) {
+    public ApplyBumpCommand(Bumper bumper) {
         this.bumper = bumper;
     }
 
     @Override
     public void execute() {
-        bumper.activate();
+        bumper.applyBump();
     }
 }

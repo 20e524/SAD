@@ -3,11 +3,11 @@ package command.rampcommand;
 import command.Command;
 import elements.Ramp;
 
-public class RaiseRamp implements Command {
+public class RaiseRampCommand implements Command {
 
     private Ramp ramp;
 
-    public RaiseRamp(Ramp ramp) {
+    public RaiseRampCommand(Ramp ramp) {
         this.ramp = ramp;
     }
 
