@@ -8,6 +8,8 @@ import elements.SlingShot;
 import state.*;
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Flipper {
 
@@ -108,6 +110,20 @@ public class Flipper {
 
     public void sayHi() {
         System.out.println("hi!!!");
+    }
+
+    public void guessToWinPoints() {
+        Scanner scanner = new Scanner(System.in);
+        Random r = new Random();
+        int randomNumber = r.nextInt((3 - 1) + 1) + 1;
+        System.out.println(randomNumber);
+        System.out.printf("zahl zwischen 1 und 3 erraten:");
+        int guess = scanner.nextInt();
+        if (guess == randomNumber) {
+            System.out.println("guessed correct.");
+            increasePoints(30);
+        }
+
     }
 
 //    public void raiseRamp(Ramp ramp) {

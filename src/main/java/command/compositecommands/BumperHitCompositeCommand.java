@@ -2,7 +2,8 @@ package command.compositecommands;
 
 import command.CompositeCommand;
 import command.FlipperSayHiCommand;
-import command.bumpercommand.AddPointsBumperHitCommand;
+import command.Add10PointsCommand;
+import command.GuessToWinPointsCommand;
 import flipper.Flipper;
 
 public class BumperHitCompositeCommand extends CompositeCommand {
@@ -11,7 +12,7 @@ public class BumperHitCompositeCommand extends CompositeCommand {
 
     public BumperHitCompositeCommand(Flipper flipper) {
         this.flipper = flipper;
-        addChild(new AddPointsBumperHitCommand(flipper));
-        addChild(new FlipperSayHiCommand(flipper));
+        addChild(new Add10PointsCommand(flipper));
+        addChild(new GuessToWinPointsCommand(flipper));
     }
 }

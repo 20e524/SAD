@@ -1,14 +1,13 @@
-package command.bumpercommand;
+package command;
 
 import command.Command;
-import elements.Bumper;
 import flipper.Flipper;
 
-public class AddPointsBumperHitCommand implements Command {
+public class Add10PointsCommand implements Command {
 
     private Flipper flipper; // receiver
 
-    public AddPointsBumperHitCommand(Flipper flipper) {
+    public Add10PointsCommand(Flipper flipper) {
         this.flipper = flipper;
     }
 

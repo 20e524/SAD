@@ -1,9 +1,5 @@
 package app;
 
-import command.bumpercommand.AddPointsBumperHitCommand;
-import elements.Bumper;
-import elements.Ramp;
-import elements.SlingShot;
 import flipper.Flipper;
 
 public class Main {
@@ -34,7 +30,6 @@ public class Main {
 
         flipper.play();
         flipper.play();
-
 
 
 
