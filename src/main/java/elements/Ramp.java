@@ -2,8 +2,18 @@ package elements;
 
 import command.Command;
 import command.FlipperElement;
+import flipper.Flipper;
+import mediator.Mediator;
 
 public class Ramp implements FlipperElement {
+
+    Flipper flipper;
+
+    Mediator mediator;
+
+    public Ramp(Mediator mediator) {
+        this.mediator = mediator;
+    }
 
     Boolean raised = false;
 
@@ -21,12 +31,14 @@ public class Ramp implements FlipperElement {
         this.command = command;
     }
 
+
     public void raiseRamp() {
         System.out.println("Ramp raised!");
     }
 
     @Override
     public void hit() {
-        command.execute(); // callback
+        mediator.mediate(this); // callback
+        command.execute();
     }
 }

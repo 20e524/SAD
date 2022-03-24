@@ -1,19 +1,20 @@
-//package command.rampcommand;
+package command.rampcommand;
 //
-//import command.Command;
-//import flipper.Flipper;
+import command.Command;
+import elements.Ramp;
+import flipper.Flipper;
 //
 //
-//public class RaiseRampCommand implements Command {
+public class RaiseRampCommand implements Command {
 //
-//    private Flipper flipper;
-//
-//    public RaiseRampCommand(Flipper flipper) {
-//        this.flipper = flipper;
-//    }
-//
-//    @Override
-//    public void execute() {
-//        flipper.raiseRamp();
-//    }
-//}
+ private Flipper flipper;
+ private Ramp ramp;
+
+    public RaiseRampCommand(Ramp ramp) {
+       this.ramp = ramp;
+   }
+   @Override
+    public void execute() {
+        ramp.raiseRamp();
+    }
+}

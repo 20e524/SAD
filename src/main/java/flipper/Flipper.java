@@ -2,21 +2,26 @@ package flipper;
 
 import command.FlipperElement;
 import command.compositecommands.BumperHitCompositeCommand;
+import command.rampcommand.RaiseRampCommand;
 import elements.Bumper;
 import elements.Ramp;
 import elements.SlingShot;
+import mediator.Mediator;
 import state.*;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Flipper {
+public class Flipper implements Mediator {
 
     private FlipperState noCredit;
     private FlipperState ready;
     private FlipperState playing;
     private FlipperState end;
+
+    private Ramp ramp;
+    private SlingShot slingShot;
 
     private ArrayList<FlipperElement> flipperElements = new ArrayList<>();
 
@@ -32,7 +37,8 @@ public class Flipper {
         ready = new Ready(this);
         playing = new Playing(this);
         end = new End(this);
-
+        ramp = new Ramp(this);
+        slingShot = new SlingShot(this);
 
 
         if(coinInMachine == 0) {
@@ -44,15 +50,15 @@ public class Flipper {
     public void init() {
         Bumper bumper1 = new Bumper("bumper1");
         bumper1.setCommand(new BumperHitCompositeCommand(this));
-        SlingShot slingShot1 = new SlingShot();
-        Ramp ramp = new Ramp();
+        // slingShot.setCommand(new RaiseRampCommand(ramp));
+        // SlingShot slingShot1 = new SlingShot();
+        // Ramp ramp = new Ramp(this);
         flipperElements.add(bumper1);
-        flipperElements.add(slingShot1);
+        //flipperElements.add(slingShot);
+        // flipperElements.add(slingShot1);
         flipperElements.add(ramp);
-
-
-
     }
+
 
     public ArrayList<FlipperElement> getFlipperElements() {
         return flipperElements;
@@ -124,6 +130,17 @@ public class Flipper {
             increasePoints(30);
         }
 
+    }
+
+    @Override
+    public void mediate(FlipperElement flipperElement) {
+        if (flipperElement == ramp) {
+            reactOnTarget(flipperElement);
+        }
+    }
+
+    private void reactOnTarget(FlipperElement flipperElement) {
+        flipperElement.setCommand(new RaiseRampCommand(ramp));
     }
 
 //    public void raiseRamp(Ramp ramp) {

@@ -20,7 +20,7 @@ public class Playing implements FlipperState {
 
     @Override
     public void pressStartButton() {
-        System.out.println("playingState: Author: Viktor");
+        System.out.println("playingState: Author: Fritz & Viktor");
     }
 
     @Override
@@ -34,6 +34,10 @@ public class Playing implements FlipperState {
             System.out.println(flipper.getPoints());
             flipper.getFlipperElements().get(0).hit();
             System.out.println(flipper.getPoints());
+            flipper.getFlipperElements().get(1).hit();
+
+
+
 
             var chance = Math.random();
             if (chance < 0.85) {
