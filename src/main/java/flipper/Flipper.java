@@ -1,7 +1,7 @@
 package flipper;
 
 import command.FlipperElement;
-import command.bumpercommand.AddPointsBumperHitCommand;
+import command.compositecommands.BumperHitCompositeCommand;
 import elements.Bumper;
 import elements.Ramp;
 import elements.SlingShot;
@@ -41,7 +41,7 @@ public class Flipper {
 
     public void init() {
         Bumper bumper1 = new Bumper("bumper1");
-        bumper1.setCommand(new AddPointsBumperHitCommand(this));
+        bumper1.setCommand(new BumperHitCompositeCommand(this));
         SlingShot slingShot1 = new SlingShot();
         Ramp ramp = new Ramp();
         flipperElements.add(bumper1);
@@ -104,6 +104,10 @@ public class Flipper {
 
     public int getPoints() {
         return points;
+    }
+
+    public void sayHi() {
+        System.out.println("hi!!!");
     }
 
 //    public void raiseRamp(Ramp ramp) {
