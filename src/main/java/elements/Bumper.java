@@ -2,10 +2,17 @@ package elements;
 
 import command.Command;
 import command.FlipperElement;
+import mediator.Mediator;
 
 public class Bumper implements FlipperElement {
 
-    private String identifier;
+    Mediator mediator;
+
+    public Bumper(Mediator mediator) {
+        this.mediator = mediator;
+    }
+
+
     private Boolean active = false;
 
     Command command;
@@ -14,21 +21,18 @@ public class Bumper implements FlipperElement {
         this.command = command;
     }
 
-    public Bumper(String identifier) {
-        this.identifier = identifier;
-    }
-
     public void activate() {
         this.active = true;
-        System.out.println("bumper " + identifier + " activated");
+
     }
 
     public void bump() {
-        System.out.println("bumper " + identifier + " bumped");
+        System.out.println("bumper bumped");
     }
 
     @Override
     public void hit() {
+        mediator.mediate(this);
         command.execute(); //callback
     }
 

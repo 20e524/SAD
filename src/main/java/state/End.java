@@ -24,6 +24,7 @@ public class End implements FlipperState {
     @Override
     public void play() {
         System.out.println("endState: this is the end");
+        System.out.println("Final Score: " + flipper.getPoints());
         flipper.coinInMachine--;
 
         var winningChance = Math.random();

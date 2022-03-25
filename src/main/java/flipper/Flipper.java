@@ -1,12 +1,13 @@
 package flipper;
 
+import command.Add50PointsCommand;
 import command.FlipperElement;
 import command.compositecommands.BumperHitCompositeCommand;
 import command.compositecommands.RaiseRampShootSlingshotCommand;
-import command.rampcommand.RaiseRampCommand;
 import elements.Bumper;
 import elements.Ramp;
 import elements.SlingShot;
+import elements.Target;
 import mediator.Mediator;
 import state.*;
 
@@ -22,7 +23,9 @@ public class Flipper implements Mediator {
     private FlipperState end;
 
     private Ramp ramp;
+    private Bumper bumper;
     private SlingShot slingShot;
+    private Target target;
 
     private ArrayList<FlipperElement> flipperElements = new ArrayList<>();
 
@@ -39,7 +42,9 @@ public class Flipper implements Mediator {
         playing = new Playing(this);
         end = new End(this);
         ramp = new Ramp(this);
+        bumper = new Bumper(this);
         slingShot = new SlingShot(this);
+        target = new Target(this);
 
 
         if(coinInMachine == 0) {
@@ -49,15 +54,16 @@ public class Flipper implements Mediator {
     }
 
     public void init() {
-        Bumper bumper1 = new Bumper("bumper1");
-        bumper1.setCommand(new BumperHitCompositeCommand(this));
+
+
         // slingShot.setCommand(new RaiseRampCommand(ramp));
         // SlingShot slingShot1 = new SlingShot();
         // Ramp ramp = new Ramp(this);
-        flipperElements.add(bumper1);
+        flipperElements.add(bumper);
         //flipperElements.add(slingShot);
         // flipperElements.add(slingShot1);
         flipperElements.add(ramp);
+        flipperElements.add(target);
     }
 
 
@@ -115,10 +121,6 @@ public class Flipper implements Mediator {
         return points;
     }
 
-    public void sayHi() {
-        System.out.println("hi!!!");
-    }
-
     public void guessToWinPoints() {
         Scanner scanner = new Scanner(System.in);
         Random r = new Random();
@@ -135,12 +137,16 @@ public class Flipper implements Mediator {
     @Override
     public void mediate(FlipperElement flipperElement) {
         if (flipperElement == ramp) {
-            reactOnTarget(flipperElement);
+            reactOnRamp();
+        } else if (flipperElement == bumper) {
+            bumper.setCommand(new BumperHitCompositeCommand(this));
+        } else if (flipperElement == target) {
+            target.setCommand(new Add50PointsCommand(this, 50));
         }
     }
 
-    private void reactOnTarget(FlipperElement flipperElement) {
-        flipperElement.setCommand(new RaiseRampShootSlingshotCommand(ramp, slingShot));
+    private void reactOnRamp() {
+        ramp.setCommand(new RaiseRampShootSlingshotCommand(ramp, slingShot));
     }
 
 //    public void raiseRamp(Ramp ramp) {

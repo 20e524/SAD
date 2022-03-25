@@ -1,7 +1,6 @@
 package command.compositecommands;
 
 import command.CompositeCommand;
-import command.FlipperSayHiCommand;
 import command.Add10PointsCommand;
 import command.GuessToWinPointsCommand;
 import flipper.Flipper;

@@ -7,8 +7,6 @@ import mediator.Mediator;
 
 public class Ramp implements FlipperElement {
 
-    Flipper flipper;
-
     Mediator mediator;
 
     public Ramp(Mediator mediator) {

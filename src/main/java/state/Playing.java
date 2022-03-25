@@ -30,13 +30,14 @@ public class Playing implements FlipperState {
         } else {
             System.out.println("playingState: playing flipper.Flipper: ding, ding, bing, bing, brrrrrr");
 
-            // bumper 1 bekommt ein kommando-objekt, dessen execute-Methode er bei einem hit aufruft.
-//            System.out.println(flipper.getPoints());
-//            flipper.getFlipperElements().get(0).hit();
-//            System.out.println(flipper.getPoints());
+
+            flipper.getFlipperElements().get(0).hit();
+
             flipper.getFlipperElements().get(1).hit();
 
+            flipper.getFlipperElements().get(2).hit();
 
+//            System.out.println(flipper.getPoints());
 
 
             var chance = Math.random();
