@@ -29,16 +29,18 @@ public class Playing implements FlipperState {
             flipper.setFlipperState(flipper.getEnd());
         } else {
             System.out.println("playingState: playing flipper.Flipper: ding, ding, bing, bing, brrrrrr");
+            var hitRandomElement = Math.ceil(Math.random()*3);
 
+            switch((int) hitRandomElement) {
+                case 1:
+                    flipper.getFlipperElements().get(0).hit();
 
-            flipper.getFlipperElements().get(0).hit();
+                case 2:
+                    flipper.getFlipperElements().get(1).hit();
 
-            flipper.getFlipperElements().get(1).hit();
-
-            flipper.getFlipperElements().get(2).hit();
-
-//            System.out.println(flipper.getPoints());
-
+                case 3:
+                    flipper.getFlipperElements().get(2).hit();
+            }
 
             var chance = Math.random();
             if (chance < 0.85) {

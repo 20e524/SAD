@@ -115,6 +115,7 @@ public class Flipper implements Mediator {
 
     public void increasePoints(int points) {
         this.points += points;
+        System.out.println("You won "+points);
     }
 
     public int getPoints() {
