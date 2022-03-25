@@ -2,6 +2,7 @@ package flipper;
 
 import command.FlipperElement;
 import command.compositecommands.BumperHitCompositeCommand;
+import command.compositecommands.RaiseRampShootSlingshotCommand;
 import command.rampcommand.RaiseRampCommand;
 import elements.Bumper;
 import elements.Ramp;
@@ -122,7 +123,6 @@ public class Flipper implements Mediator {
         Scanner scanner = new Scanner(System.in);
         Random r = new Random();
         int randomNumber = r.nextInt((3 - 1) + 1) + 1;
-        System.out.println(randomNumber);
         System.out.printf("zahl zwischen 1 und 3 erraten:");
         int guess = scanner.nextInt();
         if (guess == randomNumber) {
@@ -140,7 +140,7 @@ public class Flipper implements Mediator {
     }
 
     private void reactOnTarget(FlipperElement flipperElement) {
-        flipperElement.setCommand(new RaiseRampCommand(ramp));
+        flipperElement.setCommand(new RaiseRampShootSlingshotCommand(ramp, slingShot));
     }
 
 //    public void raiseRamp(Ramp ramp) {
